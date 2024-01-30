@@ -1,0 +1,94 @@
+/*-----------------------------------*\
+  #skill.css
+\*-----------------------------------*/
+
+/**
+ * copyright 2023 Saish
+ */
+
+/**
+ * TABLE OF CONTENT
+ *
+ * COMPONENTS
+ * Card...........................Cards style
+ * Btn............................Button style
+ *
+ * MAIN CONTENT
+ * skill........................skill style
+ * Media queries..................Responsive for all devices
+ */
+
+
+
+
+
+/*-----------------------------------*\
+  #COMPONENTS
+\*-----------------------------------*/
+
+@import url('../components/card.css');
+@import url('../components/btn.css');
+
+
+
+/*-----------------------------------*\
+  #HEADER
+\*-----------------------------------*/
+
+.white-text {
+  color: white;
+}
+
+.header {
+  background-color: transparent;
+}
+
+.header.active {
+  background-color: #a0c0ed
+}
+
+/*-----------------------------------*\
+  #skillS
+\*-----------------------------------*/
+
+.skill {
+  background-color: hsl(203, 92%, 15%);
+  padding-block-start: calc(var(--section-padding) + 60px);
+}
+
+.skill-list {
+  display: grid;
+  gap: 25px;
+}
+
+.card-title {
+  margin-block-end: 10px;
+}
+
+.card ion-icon {
+  font-size: 3.2rem;
+}
+
+.card .body-sm {
+  color: white;
+}
+
+
+
+
+
+/*-----------------------------------*\
+  #MEDIA QUERIES
+\*-----------------------------------*/
+
+/**
+ * responsive for large than 768px screen
+ */
+
+@media (min-width: 768px) {
+
+  .skill-list {
+    grid-template-columns: 1fr 1fr;
+  }
+
+}
