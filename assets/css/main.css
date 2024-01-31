@@ -44,6 +44,14 @@
   #HEADER
 \*-----------------------------------*/
 
+.nav-toggle-btn {
+  color: white;
+}
+
+.navbar {
+  background-color: #63a2f9
+}
+
 .white-text {
   color: white;
 }
