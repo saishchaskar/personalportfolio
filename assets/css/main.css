@@ -40,6 +40,22 @@
 
 
 
+
+  body:before {
+    content: "";
+    position: fixed;
+    top: 0;
+    height: 4px;
+    background-color: #149fcb;
+    width: 100%;
+    z-index: 999;
+    scale: 0 1;
+    transform-origin: left;
+    animation: scroll-watcher linear;
+    animation-timeline: scroll();
+  }
+
+
   /*-----------------------------------*\
     #HEADER
   \*-----------------------------------*/
@@ -77,10 +93,6 @@
     padding-block-start: calc(var(--section-padding) + 60px);
     text-align: center;
     overflow: hidden;
-
-
-
-
   }
 
   .hero::after {
@@ -98,8 +110,11 @@
 
   .hero .container {
     animation: color-animation 4s linear infinite;
+    animation: slide linear;
+    animation-timeline: scroll();
     display: grid;
     gap: 70px;
+
   }
 
   .hero-subtitle {
@@ -114,6 +129,7 @@
   }
 
   .headline-lg {
+    animation: slide linear;
     color: #fbfbfb;
   }
 
@@ -161,6 +177,103 @@
     max-width: max-content;
     margin-inline: auto;
   }
+
+
+
+  .stars {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    height: 100%;
+    overflow: hidden;
+    z-index: 0;
+    pointer-events: none;
+    background: radial-gradient(ellipse at bottom, #1b2735 0, #090a0f 100%)
+  }
+
+  .stars .star {
+    position: absolute;
+    background-color: #fff;
+    border-radius: 50%;
+    animation: move-star linear infinite
+  }
+
+  .stars .star.size-1 {
+    width: 1px;
+    height: 1px
+  }
+
+  .stars .star.size-2 {
+    width: 2px;
+    height: 2px;
+    background-color: #ffffc1
+  }
+
+  .stars .star.size-3 {
+    width: 3px;
+    height: 3px;
+    background-color: #c9f2ff
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    @keyframes scroll-watcher {
+      to {
+        scale: 1 1
+      }
+    }
+
+    @keyframes move-star {
+      0% {
+        translate: 0
+      }
+
+      to {
+        translate: 0 -150vh
+      }
+    }
+
+    @keyframes slide {
+      to {
+        translate: 0 100%
+      }
+    }
+  }
+
+  @keyframes blink {
+    0% {
+      opacity: 0
+    }
+
+    to {
+      opacity: 1
+    }
+  }
+
+  @keyframes spin {
+    0% {
+      rotate: 0deg
+    }
+
+    to {
+      rotate: 360deg
+    }
+  }
+
+  @keyframes shine {
+    0% {
+      translate: -100% 0
+    }
+
+    to {
+      translate: 100% 0
+    }
+  }
+
+
+
+
+
 
 
   /*-----------------------------------*\
