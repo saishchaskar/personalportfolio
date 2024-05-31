@@ -91,6 +91,7 @@
     position: relative;
     background-color: hsl(203, 92%, 15%);
     padding-block-start: calc(var(--section-padding) + 60px);
+    padding-block-end: calc(var(--section-padding) + 60px);
     text-align: center;
     overflow: hidden;
   }
@@ -129,9 +130,65 @@
   }
 
   .headline-lg {
-    animation: slide linear;
     color: #fbfbfb;
+    font-size: 3.5em;
+    /* Example size, adjust as needed */
+    overflow: hidden;
+    /* Ensures no overflow when typing */
+    white-space: nowrap;
+    /* Prevents text from wrapping */
+    border-right: 0.15em solid #fbfbfb;
+    /* Cursor */
+    animation: typewriter 4s steps(40, end), blink-caret 0.75s step-end infinite;
   }
+
+  @keyframes typewriter {
+    from {
+      width: 0;
+    }
+
+    to {
+      width: 100%;
+    }
+  }
+
+  @keyframes blink-caret {
+
+    from,
+    to {
+      border-color: transparent;
+    }
+
+    50% {
+      border-color: #fbfbfb;
+    }
+  }
+
+  /* Responsive text size */
+  @media (max-width: 1200px) {
+    .headline-lg {
+      font-size: 2em;
+    }
+  }
+
+  @media (max-width: 992px) {
+    .headline-lg {
+      font-size: 1.75em;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .headline-lg {
+      font-size: 1.75em;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .headline-lg {
+      font-size: 1.25em;
+    }
+  }
+
 
   .hero-text {
     color: #fbfbfb;
