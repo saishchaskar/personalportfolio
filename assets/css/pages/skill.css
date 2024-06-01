@@ -68,6 +68,41 @@
   gap: 25px;
 }
 
+.section-title {
+  text-transform: uppercase;
+  background-image: linear-gradient(-225deg,
+      #e674c7 0%,
+      #f4effa 29%,
+      #ff1361 67%,
+      #fff800 100%);
+  background-size: auto auto;
+  background-clip: border-box;
+  background-size: 200% auto;
+  text-align: center;
+  color: #fff;
+  background-clip: text;
+  text-fill-color: transparent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textclip 2s linear infinite;
+  font-size: 60px;
+
+}
+
+@keyframes textclip {
+  to {
+    background-position: 200% center;
+  }
+}
+
+
+
+@keyframes textclip {
+  to {
+    background-position: 200% center;
+  }
+}
+
 .card-title {
   margin-block-end: 10px;
 }
