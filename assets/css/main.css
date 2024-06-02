@@ -65,7 +65,7 @@
   }
 
   .navbar.active {
-    background-color: #63a2f9
+    background-color: #0c2c59
   }
 
   .white-text {
@@ -96,20 +96,10 @@
     overflow: hidden;
   }
 
-  .hero::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 10%;
-    bottom: 70%;
-    right: -75%;
-    background-color: #0b0908;
-    transform: rotate(-45deg);
-    border-radius: var(--radius-50);
-    z-index: -1;
-  }
+
 
   .hero .container {
+    position: relative;
     animation: color-animation 4s linear infinite;
     animation: slide linear;
     animation-timeline: scroll();
@@ -339,7 +329,7 @@
 
   .client {
     background-color: rgb(255, 255, 255);
-    padding-block: 1px;
+
   }
 
   .client .slider-item {
