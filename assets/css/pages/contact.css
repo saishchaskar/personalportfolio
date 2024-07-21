@@ -36,7 +36,7 @@
 }
 
 .navbar.active {
-  background-color: #63a2f9
+  background-image: linear-gradient(to top, #09203f 00%, #537895 100%);
 }
 
 .white-text {
@@ -48,7 +48,7 @@
 }
 
 .header.active {
-  background-color: #0c2c59
+  background-image: linear-gradient(to top, #09203f 100%, #537895 100%);
 }
 
 /*-----------------------------------*\
@@ -56,7 +56,7 @@
 \*-----------------------------------*/
 
 .contact {
-  background-color: hsl(203, 92%, 15%);
+  background-image: linear-gradient(to top, #09203f 0%, #537895 100%);
   padding-block-start: calc(var(--section-padding) + 60px);
 }
 
@@ -179,4 +179,8 @@ textarea {
     margin-inline: auto;
   }
 
+}
+
+.footer {
+  background-image: linear-gradient(to top, #09203f 100%, #537895 100%);
 }

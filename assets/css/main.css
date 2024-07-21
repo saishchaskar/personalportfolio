@@ -65,7 +65,7 @@
   }
 
   .navbar.active {
-    background-color: #0c2c59
+    background-image: linear-gradient(to top, #09203f 00%, #537895 100%);
   }
 
   .white-text {
@@ -78,13 +78,24 @@
   }
 
   .header.active {
-    background-color: #0c2c59
+    background-image: linear-gradient(to top, #09203f 100%, #537895 100%);
   }
 
 
   /*-----------------------------------*\
     #HERO
   \*-----------------------------------*/
+
+  .hero-banner img {
+    width: 100%;
+    max-width: 680px;
+    height: auto;
+    border: 5px solid white;
+    box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s;
+  }
+
+
 
   .hero {
     animation: color-animation 4s linear infinite;
@@ -327,18 +338,6 @@
     #CLIENT
   \*-----------------------------------*/
 
-  .client {
-    background-color: rgb(255, 255, 255);
-
-  }
-
-  .client .slider-item {
-    min-width: calc(50% - 15px);
-  }
-
-  .client .slider::-webkit-scrollbar {
-    display: none;
-  }
 
 
   /*-----------------------------------*\
@@ -362,8 +361,9 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     animation: textclip 2s linear infinite;
-    font-size: 60px;
+    font-size: 50px;
   }
+
 
   @keyframes textclip {
     to {
@@ -380,7 +380,7 @@
   }
 
   .about {
-    background-color: hsl(203, 92%, 15%);
+    background-image: linear-gradient(to top, #09203f 0%, #537895 100%);
     padding: 20px;
   }
 
@@ -469,7 +469,19 @@
     }
   }
 
+  @keyframes textclip {
+    to {
+      background-position: 200% center;
+    }
+  }
 
+
+
+  @keyframes textclip {
+    to {
+      background-position: 200% center;
+    }
+  }
 
   .about .wrapper {
     margin-block-start: 25px;
@@ -483,10 +495,12 @@
   /*-----------------------------------*\
     #SKILLS
   \*-----------------------------------*/
-
   .skill {
-    background-color: hsl(203, 92%, 15%);
-    padding-block-end: 5;
+    background-image: linear-gradient(to top, #09203f 100%, #537895 100%);
+    padding-block-end: 5px;
+    /* Added units for padding */
+    overflow: hidden;
+    /* Prevents overflow */
   }
 
   .skill .container,
@@ -513,29 +527,34 @@
     font-weight: var(--fw-500);
   }
 
-
-  /*-----------------------------------*\
-    #CTA
-  \*-----------------------------------*/
-
-  .cta {
-    background-color: hsl(190, 48%, 20%);
+  .section-title {
+    text-transform: uppercase;
+    background-image: linear-gradient(-225deg,
+        #8db6f9 0%,
+        #d0a9ff 29%,
+        #ff1361 67%,
+        #fff800 100%);
+    background-size: auto auto;
+    background-clip: border-box;
+    background-size: 200% auto;
     text-align: center;
-    padding-block: 35px 40px;
+    color: #fff;
+    background-clip: text;
+    text-fill-color: transparent;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: textclip 2s linear infinite;
+    font-size: 60px;
+    /* Reduced font size for smaller screens */
+    margin: 0 10px;
+    /* Added margin to avoid overflow */
+    padding: 0;
+    /* Removed padding */
+    white-space: nowrap;
+    /* Prevent text wrapping */
+
   }
 
-  .cta .container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 12px;
-  }
-
-  .cta .title-lg {
-    color: #f7f7f7;
-    font-weight: var(--fw-500);
-  }
 
 
   /*-----------------------------------*\
@@ -563,7 +582,6 @@
       margin-inline: auto;
     }
 
-
     /**
     * CTA
     */
@@ -573,7 +591,6 @@
     }
 
   }
-
 
   /**
   * responsive for large than 768px screen
@@ -597,7 +614,6 @@
     }
   }
 
-
   /**
   * responsive for large than 992px screen
   */
@@ -613,7 +629,6 @@
       align-items: center;
     }
 
-
     /**
     * HERO
     */
@@ -626,7 +641,6 @@
       margin-inline: 0;
     }
 
-
     /**
     * CLIENT
     */
@@ -635,49 +649,14 @@
       min-width: calc(20% - 24px);
     }
 
-
     /**
     * SKILL
     */
 
     .skill .container {
-      align-items: flex-start;
+      align-items: center;
     }
 
-  }
-
-  .section-title {
-    text-transform: uppercase;
-    background-image: linear-gradient(-225deg,
-        #e674c7 0%,
-        #f4effa 29%,
-        #ff1361 67%,
-        #fff800 100%);
-    background-size: auto auto;
-    background-clip: border-box;
-    background-size: 200% auto;
-    color: #fff;
-    background-clip: text;
-    text-fill-color: transparent;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: textclip 2s linear infinite;
-    display: inline-block;
-    font-size: 60px;
-  }
-
-  @keyframes textclip {
-    to {
-      background-position: 200% center;
-    }
-  }
-
-
-
-  @keyframes textclip {
-    to {
-      background-position: 200% center;
-    }
   }
 
   /**
@@ -694,4 +673,133 @@
       gap: 40px;
     }
 
+  }
+
+  /**
+  * responsive for screens less than 520px
+  */
+
+  @media (max-width: 520px) {
+
+    .skill {
+      padding-block-end: 10px;
+      /* Adjusted padding */
+    }
+
+    .skill .container {
+      gap: 15px;
+      /* Reduced gap for smaller screens */
+    }
+
+    .skill-list {
+      grid-template-columns: 1fr;
+      /* Stacked items vertically */
+      gap: 10px;
+      /* Reduced gap for smaller screens */
+    }
+
+    .skill .card ion-icon {
+      font-size: 2rem;
+      /* Reduced icon size for smaller screens */
+    }
+
+    .skill .card .card-title {
+      font-size: 1.2rem;
+      /* Reduced font size for smaller screens */
+    }
+
+    .section-title {
+      text-transform: uppercase;
+      background-image: linear-gradient(-225deg,
+          #8db6f9 0%,
+          #d0a9ff 29%,
+          #ff1361 67%,
+          #fff800 100%);
+      background-size: auto auto;
+      background-clip: border-box;
+      background-size: 200% auto;
+      text-align: center;
+      color: #fff;
+      background-clip: text;
+      text-fill-color: transparent;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: textclip 2s linear infinite;
+      font-size: 50px;
+      /* Reduced font size for smaller screens */
+      margin: 0 10px;
+      /* Added margin to avoid overflow */
+      padding: 0;
+      /* Removed padding */
+      white-space: nowrap;
+      /* Prevent text wrapping */
+    }
+
+    body {
+      overflow-x: hidden;
+      /* Prevent horizontal scroll */
+    }
+  }
+
+  /**
+* responsive for screens less than 400px
+*/
+
+  @media (max-width: 400px) {
+
+    .skill {
+      padding-block-end: 8px;
+      /* Adjusted padding */
+    }
+
+    .skill .container {
+      gap: 10px;
+      /* Further reduced gap for very small screens */
+    }
+
+    .skill-list {
+      gap: 5px;
+      /* Further reduced gap for very small screens */
+    }
+
+    .skill .card ion-icon {
+      font-size: 1.5rem;
+      /* Further reduced icon size */
+    }
+
+    .skill .card .card-title {
+      font-size: 1rem;
+      /* Further reduced font size */
+    }
+
+    .section-title {
+      text-transform: uppercase;
+      background-image: linear-gradient(-225deg,
+          #8db6f9 0%,
+          #d0a9ff 29%,
+          #ff1361 67%,
+          #fff800 100%);
+      background-size: auto auto;
+      background-clip: border-box;
+      background-size: 200% auto;
+      text-align: center;
+      color: #fff;
+      background-clip: text;
+      text-fill-color: transparent;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: textclip 2s linear infinite;
+      font-size: 40px;
+      /* Further reduced font size */
+      margin: 0 5px;
+      /* Reduced margin */
+      padding: 0;
+      /* Removed padding */
+
+    }
+
+  }
+
+  .footer {
+    background-image: linear-gradient(to top, #09203f 100%, #537895 100%);
   }
