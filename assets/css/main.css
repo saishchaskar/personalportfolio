@@ -65,7 +65,7 @@
   }
 
   .navbar.active {
-    background-color: #0c2c59
+    background-image: linear-gradient(to top, #09203f 00%, #537895 100%);
   }
 
   .white-text {
