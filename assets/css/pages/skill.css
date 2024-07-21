@@ -51,7 +51,7 @@
 }
 
 .header.active {
-  background-color: #0c2c59
+  background-image: linear-gradient(to top, #09203f 100%, #537895 100%);
 }
 
 /*-----------------------------------*\
@@ -59,7 +59,7 @@
 \*-----------------------------------*/
 
 .skill {
-  background-color: hsl(203, 92%, 15%);
+  background-image: linear-gradient(to top, #09203f 0%, #537895 100%);
   padding-block-start: calc(var(--section-padding) + 60px);
 }
 
@@ -71,9 +71,9 @@
 .section-title {
   text-transform: uppercase;
   background-image: linear-gradient(-225deg,
-      #e674c7 0%,
+      #98e674 0%,
       #f4effa 29%,
-      #ff1361 67%,
+      #abdefd 67%,
       #fff800 100%);
   background-size: auto auto;
   background-clip: border-box;
@@ -133,4 +133,8 @@
     grid-template-columns: 1fr 1fr;
   }
 
+}
+
+.footer {
+  background-image: linear-gradient(to top, #09203f 100%, #537895 100%);
 }
