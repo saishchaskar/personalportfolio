@@ -128,42 +128,17 @@
     font-weight: var(--fw-600);
     letter-spacing: 3px;
     margin-block-end: 20px;
+    font-size: 60px;
+    font-family: Gilroy, sans-serif;
   }
 
   .headline-lg {
-    color: #fbfbfb;
-    font-size: 3.5em;
-    /* Example size, adjust as needed */
-    overflow: hidden;
-    /* Ensures no overflow when typing */
-    white-space: nowrap;
-    /* Prevents text from wrapping */
-    border-right: 0.15em solid #fbfbfb;
-    /* Cursor */
-    animation: typewriter 4s steps(40, end), blink-caret 0.75s step-end infinite;
+    color: white;
+    font-size: 20px;
+    /* font-family: 'Open Sans', sans-serif; */
   }
 
-  @keyframes typewriter {
-    from {
-      width: 0;
-    }
 
-    to {
-      width: 100%;
-    }
-  }
-
-  @keyframes blink-caret {
-
-    from,
-    to {
-      border-color: transparent;
-    }
-
-    50% {
-      border-color: #fbfbfb;
-    }
-  }
 
   /* Responsive text size */
   @media (max-width: 1200px) {

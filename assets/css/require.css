@@ -52,7 +52,7 @@
    * typography
    */
 
-  --ff-jost: 'Jost', sans-serif;
+
 
   --fs-45: 4.5rem;
   --fs-38: 3.8rem;
@@ -164,7 +164,7 @@ address {
 }
 
 html {
-  font-family: var(--ff-jost);
+  font-family: 'Montserrat', sans-serif;
   font-size: 10px;
   scroll-behavior: smooth;
 }
@@ -209,9 +209,7 @@ body.loaded {
   #TYPOGRAPHY
 \*-----------------------------------*/
 
-.headline-lg {
-  font-size: var(--fs-45);
-}
+
 
 .headline-md {
   font-size: var(--fs-38);
