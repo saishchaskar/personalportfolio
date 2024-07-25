@@ -315,6 +315,7 @@
 
 
 
+
   /*-----------------------------------*\
     #ABOUT
   \*-----------------------------------*/
@@ -370,7 +371,12 @@
     margin-block: 25px 16px;
     color: #fff;
     /* Adjust the text color for better readability */
+
+
   }
+
+
+
 
   .about .card-wrapper {
     width: 100%;
