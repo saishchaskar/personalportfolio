@@ -111,26 +111,29 @@
 
   .hero .container {
     position: relative;
-    animation: color-animation 4s linear infinite;
-    animation: slide linear;
-    animation-timeline: scroll();
+
     display: grid;
     gap: 70px;
 
   }
 
   .hero-subtitle {
-    animation: color-animation 4s linear infinite;
-    --color-1: #66d3f1;
-    --color-2: #efef05;
-    --color-3: #e05d0b;
-    text-transform: uppercase;
-    font-weight: var(--fw-600);
-    letter-spacing: 3px;
-    margin-block-end: 20px;
     font-size: 60px;
-    font-family: Gilroy, sans-serif;
+    color: white;
+    text-shadow: 0 0 7px rgba(255, 255, 255, .3), 0 0 3px rgba(255, 255, 255, .3);
   }
+
+  .first {
+    font-size: 70px;
+    color: white;
+    text-shadow: 0 0 7px rgba(255, 255, 255, .3), 0 0 3px rgba(255, 255, 255, .3);
+
+  }
+
+
+
+
+
 
   .headline-lg {
     color: white;
