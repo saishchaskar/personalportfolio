@@ -5,7 +5,25 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+  <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp,container-queries"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            clifford: '#da373d',
+          }
+        }
+      }
+    }
+  </script>
+  <style type="text/tailwindcss">
+    @layer utilities {
+      .content-auto {
+        content-visibility: auto;
+      }
+    }
+  </style>
   <!-- 
     - primary meta tags
   -->
@@ -164,34 +182,46 @@
         </div>
        
        
-        <div class="container">
+        <div class="h-full w-full mx-auto relative top-12 pb-20 xl:px-16 px-8 flex md:flex-row flex-col gap-4 justify-center items-center pb-10 pt-4">
 
-          <div class="hero-content">
 
-            <h3 class="hero-subtitle">Hello👋 I'm </h3>
+          <div class="w-full flex flex-col justify-center gap-4 md:text-left text-center text-white dark:text-gray-800 md:mt-0 sm:mt-8 mt-4">
 
-            
-            <h3 class="first">Saish Chaskar  </h3>
-           
-
-            <h1 class="headline-lg ">a passionate and dedicated final-year Computer Engineering student, 
-              aspiring to drive innovation and excellence in the tech industry.</h1>
+            <h1 class="xl:text-7xl lg:text-6xl md:text-5xl text-4xl font-semibold">Hi there, I am</h1>
+            <h1 class="xl:text-8xl lg:text-7xl md:text-6xl text-4xl font-semibold bg-text ">Saish Chaskar!</h1>
+            <h3 class="capitalize text-rose-400">i'm <span class="typing text-green-500 dark:text-green-700">fullstack developer</span></h3>
+            <p>Experienced in Software developement with expertise in Java, Python, SQL, React, Docker, Kubernetes,
+              Android, and Cloud Platforms.</p>
 
 
             <p class="hero-text body-md">
               Based in Navi Mumbai, India.
             </p>
 
-            <a href="https://drive.google.com/file/d/1oh81GIMEZxWLL_LB1F8Y-EVpG7Tj9xft/view?usp=sharing" class="btn btn-primary">Download Resume/CV</a>
-
+            <button onclick="window.location.href = 'https://drive.google.com/file/d/1oh81GIMEZxWLL_LB1F8Y-EVpG7Tj9xft/view?usp=sharing';"
+            class="button">
+              <span class="button_lg">
+                <span class="button_sl"></span>
+            <a href="https://drive.google.com/file/d/1oh81GIMEZxWLL_LB1F8Y-EVpG7Tj9xft/view?usp=sharing" class="button_text">Download Resume/CV</a>
+          </span>
+        </button>
+          
           </div>
-             
-          <figure class="hero-banner">
-            <img src="assets\images\IMG_3657.jpg" width="680" height="645" alt="" class="w-100">
-          </figure>
 
+          <div class="w-full ">
+            <img class=" z-10 rounded-full lg:max-w-[70%] max-w-[60%] mx-auto outline outline-[.7rem] outline-offset-[.1rem] outline-rose-400/30" src="assets\images\IMG_3643.jpg" alt="My Image" />
+           </div>
         </div>
-      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js" referrerpolicy="no-referrer"></script>
+
+        <script>
+          var typed = new Typed('.typing', {
+          strings: ['', 'FullStack Developer,', 'Frontend Developer,', 'Backend Developer,', 'Mobile Apps Developer.'],
+          typeSpeed: 100,
+          BackSpeed: 60,
+          loop: true
+      })
+      </script>
       </section>
 
 
@@ -205,46 +235,35 @@
       
 
       <section class="client" aria-label="Trusted client">
-        <div class="container">
-
-          <ul class="slider">
-            
-            <li class="slider-item">
-              <img src="assets\images\vs-code-svgrepo-com.svg" width="90" height="20" alt="clients" class="w-60">
+        <div class="md:container md:mx-auto h-40 flex justify-between items-center overflow-hidden">
+          <ul class="slider flex justify-between w-full gap-4">
+            <li class="slider-item flex justify-center items-center">
+              <img src="assets/images/vs-code-svgrepo-com.svg" alt="VS Code" class="h-20 md:h-28 lg:h-36 object-contain">
             </li>
-            
-            <li class="slider-item">
-              <img width="96" height="96" src="assets\images\google-cloud-svgrepo-com.svg"
-                alt="gcp" />
+            <li class="slider-item flex justify-center items-center">
+              <img src="assets/images/google-cloud-svgrepo-com.svg" alt="Google Cloud" class="h-20 md:h-28 lg:h-36 object-contain">
             </li>
-
-            <li class="slider-item">
-              <img src="assets\images\android-svgrepo-com.svg" width="90" height="20" alt="clients" class="w-60">
+            <li class="slider-item flex justify-center items-center">
+              <img src="assets/images/android-svgrepo-com.svg" alt="Android" class="h-20 md:h-28 lg:h-36 object-contain">
             </li>
-
-            <li class="slider-item">
-              <img src="assets\images\aws-svgrepo-com.svg" width="90" height="20" alt="clients" class="w-60">
+            <li class="slider-item flex justify-center items-center">
+              <img src="assets/images/aws-svgrepo-com.svg" alt="AWS" class="h-20 md:h-28 lg:h-36 object-contain">
             </li>
-
-            <li class="slider-item">
-              <img src="assets\images\linux-svgrepo-com.svg" width="90" height="20" alt="clients" class="w-60">
+            <li class="slider-item flex justify-center items-center">
+              <img src="assets/images/linux-svgrepo-com.svg" alt="Linux" class="h-20 md:h-28 lg:h-36 object-contain">
             </li>
-
-            <li class="slider-item">
-              <img src="assets\images\firebase-svgrepo-com.svg" width="90" height="20" alt="clients" class="w-60">
+            <li class="slider-item flex justify-center items-center">
+              <img src="assets/images/firebase-svgrepo-com.svg" alt="Firebase" class="h-20 md:h-28 lg:h-36 object-contain">
             </li>
-
-            
-           
-            <li class="slider-item">
-              <img src="assets\images\kubernetes-svgrepo-com.svg" width="90" height="20" alt="clients" class="w-60">
+            <li class="slider-item flex justify-center items-center">
+              <img src="assets/images/kubernetes-svgrepo-com.svg" alt="Kubernetes" class="h-20 md:h-28 lg:h-36 object-contain">
             </li>
-
           </ul>
-
         </div>
       </section>
-
+      
+      
+      
 
 
       <!-- 
@@ -285,134 +304,16 @@
                     <a href="./projects.html" class="btn btn-secondary">Projects</a>
                   </div>
           </div>
+
+          
       </section>
       <!-- 
         - #SKILL
       -->
-
-      <section class="section skill" aria-labelledby="skill-label">
-        <div class="container">
-          <div class="skill-content">
-
-            <div class="section-title headline-md white-text " id="skill-label">Technologies</div>
-
-            <ul class="skill-list">
-
-              <li>
-                <div class="card card-sm" style="background-color: hsl(12, 78%, 60%)">
-
-                  <div class="card-media">
-                    <ion-icon name="cafe-outline"></ion-icon>
-                  </div>
-
-                  <h2 class="card-title">JAVA</h2>
-
-                </div>
-              </li>
-
-              <li>
-                <div class="card card-sm" style="background-color: hsl(41, 99%, 64%)">
-
-                  <div class="card-media">
-                    <ion-icon name="logo-python"></ion-icon>
-                  </div>
-
-                  <h2 class="card-title">Python</h2>
-
-                </div>
-              </li>
-
-
-             
-
-              <li>
-                <div class="card card-sm" style="background-color: hsl(251, 100%, 79%)">
-
-                  <div class="card-media">
-                    <ion-icon name="logo-google"></ion-icon>
-                  </div>
-
-                  <h2 class="card-title">GCP</h2>
-
-                </div>
-              </li>
-
-
-              <li>
-                <div class="card card-sm" style="background-color: hsl(202, 68%, 64%)">
-
-                  <div class="card-media">
-                    <ion-icon name="logo-amazon"></ion-icon>
-                  </div>
-
-                  <h2 class="card-title">AWS</h2>
-
-                </div>
-              </li>
-
-              <li>
-                <div class="card card-sm" style="background-color: hsl(15, 90%, 64%)">
-
-                  <div class="card-media">
-                    <ion-icon name="server-outline"></ion-icon>
-                  </div>
-
-                  <h2 class="card-title">SQL DATABASE</h2>
-
-                </div>
-              </li>
-              <li>
-                <div class="card card-sm" style="background-color: hsl(19, 97%, 85%)">
-
-                  <div class="card-media">
-                    <ion-icon name="logo-react"></ion-icon>
-                  </div>
-
-                  <h2 class="card-title">React JS</h2>
-
-                </div>
-              </li>
-              <li>
-                <div class="card card-sm" style="background-color: hsl(137, 82%, 60%)">
-
-                  <div class="card-media">
-                    <ion-icon name="logo-github"></ion-icon>
-                  </div>
-
-                  <h2 class="card-title">Git/Github</h2>
-
-                </div>
-              </li>
-
-
-
-              <li>
-                <div class="card card-sm" style="background-color: hsl(245, 22%, 51%)">
-
-                  <div class="card-media">
-                    <ion-icon name="cube-outline"></ion-icon>
-                  </div>
-
-                  <h2 class="card-title">Kubernetes/Docker</h2>
-
-                </div>
-              </li>
-
-            </ul>
-
-          </div>
-
-          <figure class="skill-banner">
-            <img src="assets\images\125.jpeg" width="581" height="657" loading="lazy" alt="" class="w-100">
-          </figure>
-
-        </div>
-
-
-
-      </section>
-
-
+      <section class="section skill" aria-label="skill">
+      
+      
+  </section>
 
 
 
