@@ -102,7 +102,7 @@
 }
 
 .projects-list {
-  gap: 50px;
+  gap: 150px;
 }
 
 .projects-card {
@@ -111,13 +111,23 @@
 
 .projects-card .card-banner {
   position: relative;
-  border: 2px solid var(--jet);
-  box-shadow: 0 0 0 var(--jet);
-  transition: var(--transition-1);
+  width: 400px;
+  height: 300px;
+  background-color: #f2f2f2;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  perspective: 1000px;
+  box-shadow: 0 0 0 5px #ffffff80;
+  transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .projects-card .card-banner:is(:hover, :focus-within) {
   box-shadow: 3px 3px 0 var(--jet);
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(255, 255, 255, 0.2);
 }
 
 .projects-card .btn-icon {

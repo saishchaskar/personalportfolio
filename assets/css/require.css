@@ -126,7 +126,7 @@ span,
 label,
 button,
 ion-icon {
-  display: block;
+  /* display: block; */
 }
 
 a {
