@@ -354,6 +354,46 @@
         btn.innerHTML = '<ion-icon name="menu-outline"></ion-icon>';
       }
     });
+
+    document.addEventListener('DOMContentLoaded', () => {
+    // 1. Handle Page Entry
+    // Remove the 'is-entering' class to trigger the fade-in animation
+    document.body.classList.add('is-entering');
+    
+    // Slight delay to ensure the browser registers the initial state
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        document.body.classList.remove('is-entering');
+      });
+    });
+
+    // 2. Handle Page Exit (Link Interception)
+    const links = document.querySelectorAll('a');
+
+    links.forEach(link => {
+      link.addEventListener('click', e => {
+        const target = link.href;
+        const currentOrigin = window.location.origin;
+
+        // Logic: Only animate if it's an internal link and NOT opening in a new tab
+        const isInternal = target.includes(currentOrigin) || target.startsWith('./') || target.startsWith('/');
+        const isNewTab = link.target === '_blank';
+        const isAnchor = target.includes('#');
+
+        if (isInternal && !isNewTab && !isAnchor) {
+          e.preventDefault(); // Stop the immediate page load
+
+          // Add exit class to trigger CSS animation
+          document.body.classList.add('is-exiting');
+
+          // Wait 400ms (matches CSS transition time) then load new page
+          setTimeout(() => {
+            window.location.href = target;
+          }, 400); 
+        }
+      });
+    });
+  });
   </script>
 
 </body>

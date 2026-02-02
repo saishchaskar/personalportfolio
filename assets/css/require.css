@@ -169,6 +169,26 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Page Transition Animations */
+body {
+  opacity: 1;
+  transition: opacity 0.4s ease-in-out;
+  will-change: opacity;
+}
+
+/*
+  State for when a new page is loading.
+  JS adds this class, then removes it in the next frame to trigger the fade-in.
+*/
+body.is-entering {
+  opacity: 0;
+}
+
+/* State for when the user is navigating away from the current page. */
+body.is-exiting {
+  opacity: 0;
+}
+
 body {
   background-color: var(--white);
   color: var(--davys-gray);
