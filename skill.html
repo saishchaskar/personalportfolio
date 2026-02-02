@@ -5,316 +5,334 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
   <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp,container-queries"></script>
   <script>
     tailwind.config = {
       theme: {
         extend: {
           colors: {
-            clifford: '#da373d',
+            brand: {
+              dark: '#0f172a',    // Slate 900
+              card: '#1e293b',    // Slate 800
+              accent: '#38bdf8',  // Sky 400
+              text: '#e2e8f0'     // Slate 200
+            }
+          },
+          fontFamily: {
+            sans: ['Jost', 'sans-serif'],
+            heading: ['Montserrat', 'sans-serif'],
           }
         }
       }
     }
   </script>
-  <style type="text/tailwindcss">
-    @layer utilities {
-      .content-auto {
-        content-visibility: auto;
-      }
-    }
-  </style>
-  <!-- 
-    - primary meta tags
-  -->
-  <title>Saish | Skills</title>
-  <meta name="title" content="Saish | Skills">
-  <meta name="description" content="This is a personal projects html template made by saish">
 
-  <!-- 
-    - favicon
-  -->
   <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
-
-  <!-- 
-    - google font link
-  -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-
-  <!-- 
-    - custom css link
-  -->
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./assets/css/require.css">
-  <link rel="stylesheet" href="./assets/css/pages/skill.css">
+  
+  <title>Saish | Skills & Experience</title>
 
+  <style>
+    /* CUSTOM SCROLLBAR - Page Level */
+html {
+      font-size: 14px !important; 
+    }
+    html::-webkit-scrollbar-track {
+      background: #0f172a;
+    }
+    html::-webkit-scrollbar-thumb {
+      background: rgba(56, 189, 248, 0.4);
+      border-radius: 10px;
+    }
+    html::-webkit-scrollbar-thumb:hover {
+      background: rgba(56, 189, 248, 0.7);
+    }
+
+    /* Custom Scrollbar for the Experience Section */
+    .custom-scroll::-webkit-scrollbar {
+      width: 6px;
+    }
+    .custom-scroll::-webkit-scrollbar-track {
+      background: rgba(255, 255, 255, 0.05);
+    }
+    .custom-scroll::-webkit-scrollbar-thumb {
+      background: rgba(56, 189, 248, 0.3);
+      border-radius: 10px;
+    }
+    .custom-scroll::-webkit-scrollbar-thumb:hover {
+      background: rgba(56, 189, 248, 0.6);
+    }
+  </style>
 </head>
 
-<body>
+<body class="bg-[#0f172a] text-slate-200 font-sans selection:bg-cyan-500 selection:text-white">
 
-  <!-- 
-    - #PRELOADER
-  -->
+  <header class="fixed top-0 left-0 w-full z-50 backdrop-blur-lg bg-[#0f172a]/80 border-b border-white/10 transition-all duration-300">
+    <div class="container mx-auto px-6 h-20 flex items-center justify-between">
+      <a href="./index.html" class="text-3xl font-heading font-bold bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-blue-600">
+        SAISH.
+      </a>
 
-  <div class="preloader" data-preloader>
-    <div class="preloader-circle"></div>
-  </div>
-
-
-
-
-
-  <!-- 
-    - #HEADER
-  -->
-
-  <header class="header" data-header>
-    <div class="container">
-
-
-      <nav class="navbar" data-navbar>
-        <ul class="navbar-list">
-
-          <li class="navbar-item">
-            <a href="./index.html" class="label-lg navbar-link has-after white-text">Home</a>
-          </li>
-
-          <li class="navbar-item">
-            <a href="#" class="label-lg navbar-link has-after active  white-text ">Skills</a>
-          </li>
-
-          <li class="navbar-item">
-            <a href="./projects.html" class="label-lg navbar-link has-after  white-text ">Projects</a>
-          </li>
-
-          <li class="navbar-item">
-            <a href="./contact.html" class="label-lg navbar-link has-after  white-text ">Contact</a>
-          </li>
-
-        </ul>
+      <nav class="hidden md:flex gap-8">
+        <a href="./index.html" class="text-lg font-medium hover:text-cyan-400 transition-colors">Home</a>
+        <a href="#" class="text-lg font-medium text-cyan-400">Experience & Skills</a>
+        <a href="./projects.html" class="text-lg font-medium hover:text-cyan-400 transition-colors">Projects</a>
+        <a href="./contact.html" class="text-lg font-medium hover:text-cyan-400 transition-colors">Contact</a>
       </nav>
 
-      <a href="./contact.html" class="btn btn-primary">Contact Now</a>
-
-      <button class="nav-toggle-btn" aria-label="menu" data-nav-toggler>
-        <ion-icon name="menu-outline" aria-hidden="true"></ion-icon>
+      <a href="./contact.html" class="hidden md:inline-block px-8 py-3 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-full font-semibold text-white hover:shadow-[0_0_20px_rgba(6,182,212,0.5)] transition-all transform hover:-translate-y-0.5 text-base">
+        Hire Me
+      </a>
+      
+      <button id="mobile-menu-btn" class="md:hidden text-4xl text-white focus:outline-none">
+        <ion-icon name="menu-outline"></ion-icon>
       </button>
-
+    </div>
+    <div id="mobile-menu" class="md:hidden max-h-0 opacity-0 overflow-hidden bg-[#0f172a] border-b border-white/10">
+      <nav class="flex flex-col p-6 space-y-4 text-center">
+        <a href="./index.html" class="text-xl font-medium text-slate-300 hover:text-cyan-400">Home</a>
+        <a href="#" class="text-xl font-medium text-cyan-400">Experience</a>
+        <a href="./projects.html" class="text-xl font-medium text-slate-300 hover:text-cyan-400">Projects</a>
+        <a href="./contact.html" class="text-xl font-medium text-slate-300 hover:text-cyan-400">Contact</a>
+      </nav>
     </div>
   </header>
 
+  <main class="pt-28 pb-20 min-h-screen">
+    <div class="container mx-auto px-4 md:px-8 max-w-8xl"> <div class="text-center mb-16">
+        <h1 class="font-heading text-5xl md:text-7xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white via-slate-200 to-slate-400 mb-4">
+          My Journey
+        </h1>
+        <p class="text-xl md:text-2xl text-slate-400 max-w-3xl mx-auto">
+          Combining <span class="text-cyan-400 font-semibold">technical expertise</span> with hands-on <span class="text-purple-400 font-semibold">industry experience</span>.
+        </p>
+      </div>
 
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
 
+        <div class="lg:col-span-7 space-y-8">
+          <div class="flex items-center gap-4 mb-2">
+            <ion-icon name="briefcase-outline" class="text-4xl text-cyan-400"></ion-icon>
+            <h2 class="text-4xl font-heading font-bold text-white">Experience</h2>
+          </div>
 
+          <div class="relative border-l-2 border-white/10 ml-4 space-y-12">
 
-  <main>
-    <article>
-
-      <!-- 
-        - #skill
-      -->
-
-      <section class="section skill has-bg-image" aria-labelledby="skill-label"
-       >
-        <div class="container">
-
-          <div class="section-title headline-md text-center  white-text" id="skill-label">MY SKILLS</div>
-
-          <ul class="skill-list">
-
-            <li class="card-container">
+            <div class="relative pl-8 group">
+              <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-cyan-500 shadow-[0_0_15px_rgba(6,182,212,0.8)]"></div>
               
-              <div class="card card-md" style="background-color: hsl(177, 39%, 72%)">
-
-                <div class="card-media">
-                  <ion-icon name="phone-portrait-outline" aria-hidden="true"></ion-icon>
+              <div class="bg-[#1e293b]/50 p-8 rounded-2xl border border-white/5 hover:border-cyan-500/30 transition-all duration-300 hover:bg-[#1e293b]">
+                <div class="flex flex-col md:flex-row md:items-center justify-between mb-4">
+                  <h3 class="text-2xl font-bold text-white">Software Developer - Fullstack</h3>
+                  <span class="px-3 py-1 bg-cyan-500/10 text-cyan-400 text-base font-semibold rounded-full border border-cyan-500/20">July 2025 - Present</span>
                 </div>
-
-                <div>
-                  <h3 class="card-title title-sm">PROGRAMMING LANGUAGES</h3>
-
-                  <p class="body-sm">
-
-
-                    "I am a versatile developer skilled in programming languages including Java, and
-                    Python.With Java, I excel in creating robust applications for various platforms. My expertise in Java enables me to tackle low-level system design, ensuring optimal performance
-                    I can implement the Object Oriented Concepts as well.
-                    "
-                  </p>
+                <div class="mb-6">
+                  <h4 class="text-xl text-cyan-300 font-medium">Unbox Robotics</h4>
+                  <p class="text-slate-400">Pune, Maharashtra · On-site</p>
                 </div>
+                
+                <ul class="space-y-3 text-lg text-slate-300 leading-relaxed list-disc list-outside pl-5 marker:text-cyan-500">
+                  <li>Specifying and building customer-facing service handling real-time APIs for <strong>30–40K parcels/day</strong> with low-latency (<strong>&lt;100 ms</strong>) responses.</li>
+                  <li>Architected high-throughput event pipelines to process <strong>60–80K+ events/day</strong>, ensuring reliable updates during live sortation.</li>
+                  <li>Built customer-specific data mapping layers to integrate diverse client schemas, enabling support for multiple sorting types.</li>
+                  <li>Built and owned <strong>Grafana dashboards</strong> to track FTP upload rates, latency, and volumes, significantly reducing manual follow-ups.</li>
+                </ul>
 
+                <div class="mt-6 flex flex-wrap gap-2">
+                  <span class="tech-tag">Docker</span>
+                  <span class="tech-tag">RabbitMQ</span>
+                  <span class="tech-tag">Spring Boot</span>
+                  <span class="tech-tag">Java</span>
+                </div>
               </div>
-            </li>
+            </div>
 
-            <li class="card-container">
-              <div class="card card-md" style="background-color: hsl(41, 99%, 64%)">
-
-                <div class="card-media">
-                  <ion-icon name="laptop-outline" aria-hidden="true"></ion-icon>
+            <div class="relative pl-8 group">
+              <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-purple-500 shadow-[0_0_15px_rgba(168,85,247,0.8)]"></div>
+              
+              <div class="bg-[#1e293b]/50 p-8 rounded-2xl border border-white/5 hover:border-purple-500/30 transition-all duration-300 hover:bg-[#1e293b]">
+                <div class="flex flex-col md:flex-row md:items-center justify-between mb-4">
+                  <h3 class="text-2xl font-bold text-white">Software Development Intern</h3>
+                  <span class="px-3 py-1 bg-purple-500/10 text-purple-400 text-base font-semibold rounded-full border border-purple-500/20">Jan 2025 - July 2025</span>
                 </div>
-
-                <div>
-                  <h3 class="card-title title-sm">DATABASE DESIGNING</h3>
-
-                  <p class="body-sm">
-                    "I am well-versed in SQL, relational database design, and NoSQL technologies. Proficient in crafting
-                    intricate SQL queries, I excel in managing data retrieval and manipulation, ensuring efficient
-                    database operations. I design schemas that uphold data integrity and performance."
-                  </p>
+                <div class="mb-4">
+                  <h4 class="text-xl text-purple-300 font-medium">Unbox Robotics</h4>
                 </div>
-
+                <p class="text-lg text-slate-300 mb-4">
+                  Gained hands-on experience in the Software Development Life Cycle (SDLC) and Linux environments. Contributed to core backend modules and testing frameworks.
+                </p>
+                <div class="flex flex-wrap gap-2">
+                  <span class="tech-tag bg-purple-500/10 border-purple-500/20 text-purple-300">Linux</span>
+                  <span class="tech-tag bg-purple-500/10 border-purple-500/20 text-purple-300">SDLC</span>
+                </div>
               </div>
-            </li>
+            </div>
 
-            <li class="card-container">
-              <div class="card card-md" style="background-color: hsl(19, 97%, 85%)">
-
-                <div class="card-media">
-                  <ion-icon name="code-slash-outline" aria-hidden="true"></ion-icon>
+            <div class="relative pl-8 group">
+              <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-blue-500 shadow-[0_0_15px_rgba(59,130,246,0.8)]"></div>
+              
+              <div class="bg-[#1e293b]/50 p-8 rounded-2xl border border-white/5 hover:border-blue-500/30 transition-all duration-300 hover:bg-[#1e293b]">
+                <div class="flex flex-col md:flex-row md:items-center justify-between mb-4">
+                  <h3 class="text-2xl font-bold text-white">Cloud Engineer Intern</h3>
+                  <span class="px-3 py-1 bg-blue-500/10 text-blue-400 text-base font-semibold rounded-full border border-blue-500/20">Mar 2024 - Aug 2024</span>
                 </div>
-
-                <div>
-                  <h3 class="card-title title-sm">DEVELOPMENT</h3>
-
-                  <p class="body-sm">
-                    "A skilled mobile developer specializing in Android platforms. I
-                    design and develop native mobile applications that provide exceptional user experiences. From
-                    concept to deployment, I ensure smooth functionality, intuitive navigation, and integration with
-                    backend skills, resulting in high-performance mobile apps and web applications."
-                  </p>
+                <div class="mb-4">
+                  <h4 class="text-xl text-blue-300 font-medium">Cubois Technologies</h4>
+                  <p class="text-slate-400">Remote</p>
                 </div>
-
+                <p class="text-lg text-slate-300">
+                  Acquired deep knowledge of 8 core cloud services and over 150 Google Cloud products. Successfully achieved the <strong>Google Cloud Associate Engineer Certification</strong>.
+                </p>
               </div>
-            </li>
+            </div>
 
-            <li class="card-container">
-              <div class="card card-md" style="background-color: hsl(221, 100%, 79%)">
-
-                <div class="card-media">
-                  <ion-icon name="cloud-outline" aria-hidden="true"></ion-icon>
+            <div class="relative pl-8 group">
+              <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-green-500 shadow-[0_0_15px_rgba(34,197,94,0.8)]"></div>
+              
+              <div class="bg-[#1e293b]/50 p-8 rounded-2xl border border-white/5 hover:border-green-500/30 transition-all duration-300 hover:bg-[#1e293b]">
+                <div class="flex flex-col md:flex-row md:items-center justify-between mb-4">
+                  <h3 class="text-2xl font-bold text-white">Sales Operations / Coffee Master</h3>
+                  <span class="px-3 py-1 bg-green-500/10 text-green-400 text-base font-semibold rounded-full border border-green-500/20">Jun 2022 - Aug 2023</span>
                 </div>
-
-                <div>
-                  <h3 class="card-title title-sm">CLOUD COMPUTING</h3>
-
-                  <p class="body-sm">
-                    "Cloud computing is a domain I deeply admire and have gained considerable interest in. I 
-                    have also earned a global certification as a Google Associate Cloud Engineer, which validates my 
-                    skills in the field of cloud computing.Passionate about cloud computing, demonstrating proficiency in cloud infrastructure, services, and solutions."
-                  </p>
+                <div class="mb-4">
+                  <h4 class="text-xl text-green-300 font-medium">Starbucks</h4>
                 </div>
-
+                <p class="text-lg text-slate-300">
+                  Attained the title of "Coffee Master" and "Barista Trainer". Showcased exceptional leadership and contributed to store operations and inventory management.
+                </p>
               </div>
-            </li>
+            </div>
 
-            <li class="card-container">
-              <div class="card card-md" style="background-color: hsl(76, 39%, 72%)">
+          </div>
+        </div>
 
-                <div class="card-media">
-                  <ion-icon name="code-slash-outline" aria-hidden="true"></ion-icon>
-                </div>
+        <div class="lg:col-span-5 space-y-8 sticky top-28 h-fit">
+          <div class="flex items-center gap-4 mb-2">
+            <ion-icon name="code-slash-outline" class="text-4xl text-purple-400"></ion-icon>
+            <h2 class="text-4xl font-heading font-bold text-white">Technical Skills</h2>
+          </div>
 
-                <div>
-                  <h3 class="card-title title-sm">BACK END DEVELOPMENT</h3>
-
-                  <p class="body-sm">
-                    "An accomplished backend developer well-versed in designing and implementing server-side logic and
-                    databases. Proficient in languages like Python, Java, or Node.js, I excel in building robust and
-                    scalable APIs that power web applications. My experience with database management systems ensures
-                    efficient data storage and retrieval, while my focus on security enhances application integrity."
-                  </p>
-                </div>
-
+          <div class="bg-[#1e293b] p-8 rounded-3xl border border-white/10 shadow-xl hover:shadow-cyan-500/10 transition-all">
+            <div class="flex items-center gap-4 mb-6">
+              <div class="p-3 bg-cyan-500/10 rounded-xl text-cyan-400 text-3xl">
+                <ion-icon name="terminal"></ion-icon>
               </div>
-            </li>
+              <h3 class="text-2xl font-bold text-white">Languages</h3>
+            </div>
+            <div class="flex flex-wrap gap-3">
+              <span class="skill-pill">Java</span>
+              <span class="skill-pill">Python</span>
+              <span class="skill-pill">JavaScript</span>
+              <span class="skill-pill">HTML/CSS</span>
+              <span class="skill-pill">SQL</span>
+            </div>
+          </div>
 
-            <li class="card-container">
-              <div class="card card-md" style="background-color: hsl(245, 100%, 90%)">
-
-                <div class="card-media">
-                  <ion-icon name="globe-outline" aria-hidden="true"></ion-icon>
-                </div>
-
-                <div>
-                  <h3 class="card-title title-sm">SDLC</h3>
-
-                  <p class="body-sm">
-                    "Proficient in Software Development Life Cycle (SDLC) methodologies, I possess a comprehensive
-                    understanding of the entire software development process. From project initiation to deployment and
-                    maintenance, I follow industry best practices to ensure efficient planning, design, development,
-                    testing, and implementation of software solutions. My expertise in SDLC contributes to delivering
-                    high-quality products."
-                  </p>
-                </div>
-
+          <div class="bg-[#1e293b] p-8 rounded-3xl border border-white/10 shadow-xl hover:shadow-purple-500/10 transition-all">
+            <div class="flex items-center gap-4 mb-6">
+              <div class="p-3 bg-purple-500/10 rounded-xl text-purple-400 text-3xl">
+                <ion-icon name="layers"></ion-icon>
               </div>
-            </li>
+              <h3 class="text-2xl font-bold text-white">Frameworks & Backend</h3>
+            </div>
+            <div class="flex flex-wrap gap-3">
+              <span class="skill-pill border-purple-500/30 text-purple-300">Spring Boot</span>
+              <span class="skill-pill border-purple-500/30 text-purple-300">FastAPI</span>
+              <span class="skill-pill border-purple-500/30 text-purple-300">Node.js</span>
+              <span class="skill-pill border-purple-500/30 text-purple-300">React</span>
+              <span class="skill-pill border-purple-500/30 text-purple-300">Tailwind</span>
+            </div>
+          </div>
 
-          </ul>
+          <div class="bg-[#1e293b] p-8 rounded-3xl border border-white/10 shadow-xl hover:shadow-orange-500/10 transition-all">
+            <div class="flex items-center gap-4 mb-6">
+              <div class="p-3 bg-orange-500/10 rounded-xl text-orange-400 text-3xl">
+                <ion-icon name="cloud-upload"></ion-icon>
+              </div>
+              <h3 class="text-2xl font-bold text-white">Cloud & DevOps</h3>
+            </div>
+            <div class="flex flex-wrap gap-3">
+              <span class="skill-pill border-orange-500/30 text-orange-300">Google Cloud (ACE)</span>
+              <span class="skill-pill border-orange-500/30 text-orange-300">AWS</span>
+              <span class="skill-pill border-orange-500/30 text-orange-300">Docker</span>
+              <span class="skill-pill border-orange-500/30 text-orange-300">Kubernetes</span>
+              <span class="skill-pill border-orange-500/30 text-orange-300">Jenkins</span>
+            </div>
+          </div>
+
+          <div class="bg-[#1e293b] p-8 rounded-3xl border border-white/10 shadow-xl hover:shadow-green-500/10 transition-all">
+            <div class="flex items-center gap-4 mb-6">
+              <div class="p-3 bg-green-500/10 rounded-xl text-green-400 text-3xl">
+                <ion-icon name="server"></ion-icon>
+              </div>
+              <h3 class="text-2xl font-bold text-white">Tools & Databases</h3>
+            </div>
+            <div class="flex flex-wrap gap-3">
+              <span class="skill-pill border-green-500/30 text-green-300">PostgreSQL</span>
+              <span class="skill-pill border-green-500/30 text-green-300">Redis</span>
+              <span class="skill-pill border-green-500/30 text-green-300">RabbitMQ</span>
+              <span class="skill-pill border-green-500/30 text-green-300">Grafana</span>
+              <span class="skill-pill border-green-500/30 text-green-300">Git/GitHub</span>
+            </div>
+          </div>
 
         </div>
-      </section>
 
-    </article>
+      </div>
+    </div>
   </main>
 
-
-
-
-
-  <!-- 
-    - #FOOTER
-  -->
-
-  <footer class="footer">
-    <div class="container">
-
-      <ul class="social-list">
-
-
-
-        <li>
-          <a href="https://github.com/saishchaskar" class="social-link">
-            <ion-icon name="logo-github"></ion-icon>
-          </a>
-        </li>
-
-        <li>
-          <a href="https://instagram.com/saishchaskar?igshid=OGQ5ZDc2ODk2ZA==" class="social-link">
-            <ion-icon name="logo-instagram"></ion-icon>
-          </a>
-        </li>
-
-        <li>
-          <a href="https://www.linkedin.com/in/saish-chaskar-74b705237/" class="social-link">
-            <ion-icon name="logo-linkedin"></ion-icon>
-          </a>
-        </li>
-
-      </ul>
-
-      <p class="text-center">&copy; 2023 copyright Saish Chaskar all right reserved </p>
-
+  <footer class="py-8 bg-[#0f172a] border-t border-white/10">
+    <div class="container mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
+      <p class="text-slate-400 text-lg">&copy; 2026 Saish Chaskar. All rights reserved.</p>
+      
+      <div class="flex gap-6">
+        <a href="https://github.com/saishchaskar" class="text-2xl text-slate-400 hover:text-white transition-colors">
+          <ion-icon name="logo-github"></ion-icon>
+        </a>
+        <a href="https://www.linkedin.com/in/saish-chaskar-74b705237/" class="text-2xl text-slate-400 hover:text-blue-500 transition-colors">
+          <ion-icon name="logo-linkedin"></ion-icon>
+        </a>
+        <a href="https://instagram.com/saishchaskar" class="text-2xl text-slate-400 hover:text-pink-500 transition-colors">
+          <ion-icon name="logo-instagram"></ion-icon>
+        </a>
+      </div>
     </div>
   </footer>
 
+  <style type="text/tailwindcss">
+    @layer components {
+      .tech-tag {
+        @apply px-3 py-1 bg-cyan-500/10 text-cyan-300 text-base font-medium rounded-md border border-cyan-500/20;
+      }
+      .skill-pill {
+        @apply px-4 py-2 bg-[#0f172a] text-slate-200 text-lg font-medium rounded-lg border border-white/10 shadow-sm hover:border-cyan-500/50 hover:text-cyan-400 hover:scale-105 transition-all cursor-default;
+      }
+    }
+  </style>
 
-
-
-
-  <!-- 
-    - custom js link
-  -->
-  <script src="./assets/js/script.js"></script>
-
-  <!-- 
-    - ionicon
-  -->
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  <script>
+    const btn = document.getElementById('mobile-menu-btn');
+    const menu = document.getElementById('mobile-menu');
+
+    btn.addEventListener('click', () => {
+      if (menu.classList.contains('max-h-0')) {
+        menu.classList.remove('max-h-0', 'opacity-0');
+        menu.classList.add('max-h-screen', 'opacity-100');
+        btn.innerHTML = '<ion-icon name="close-outline"></ion-icon>';
+      } else {
+        menu.classList.add('max-h-0', 'opacity-0');
+        menu.classList.remove('max-h-screen', 'opacity-100');
+        btn.innerHTML = '<ion-icon name="menu-outline"></ion-icon>';
+      }
+    });
+  </script>
 
 </body>
-
 </html>
